@@ -41,5 +41,6 @@ public class GetMethodEx04 extends HttpServlet {
 		
 		//클론 후 주석 추가
 		
+		//임시로 작업함
 	}
 }
