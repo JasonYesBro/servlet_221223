@@ -32,6 +32,7 @@ public class PostMethodQuiz02 extends HttpServlet {
 		String id ="";
 		String password = "";
 		
+		// 파라미터값들 가져오기
 		id = req.getParameter("userId");
 		password = req.getParameter("userPwd");
 		
