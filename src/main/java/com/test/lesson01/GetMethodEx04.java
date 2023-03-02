@@ -39,6 +39,7 @@ public class GetMethodEx04 extends HttpServlet {
 		
 		out.print("</body></html>");
 		
+		//클론 후 주석 추가
 		
 	}
 }
