@@ -17,14 +17,15 @@
 		
 		height = Integer.parseInt(request.getParameter("height"));
 		weight = Integer.parseInt(request.getParameter("weight"));
-		double bmi =  weight / ((height / 100.0) * (height / 100.0));
-
+		int bmi = (int)(weight / ((height / 100.0) * (height / 100.0)));
+		
+		
 		String result = "";
 
 		if(bmi <= 20) {
 			
 			result =  "저체중";
-		} else if (bmi > 21 && bmi <= 25 ) {
+		} else if (bmi >= 21 && bmi <= 25 ) {
 			
 			result = "정상";
 		} else if (bmi >= 26 && bmi <= 30) {
