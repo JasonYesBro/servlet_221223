@@ -11,12 +11,15 @@
 
 </head>
 <body>
-	<form action="/lesson02/quiz03_1.jsp" method="get">
-		<!-- <div class="input-group mb-3"> -->
-			<input type="text" class="form-control" name="height" placeholder="키를 입력하세요.">
-			<input type="text" class="form-control" name="weight" placeholder="몸무게를 입력하세요.">
-		<!-- </div> -->
-			<button type="submit" class="btn btn-primary">계산</button>
-	</form>
+	<div class="container-sm center-block w-50" style="min-width: 570px">
+		<h1 class="display-4">체격조건 입력</h1>
+		<form action="/lesson02/quiz03_1.jsp" method="get" class="mx-auto" >
+			<div class="form-inline d-flex justify-content-around">
+			  	<input type="text" class="form-control" placeholder="height" aria-label="height"> cm
+			  	<input type="text" class="form-control" placeholder="weight" aria-label="weight"> kg
+				<button type="submit" class="btn btn-info">계산</button>
+		  	</div>
+		</form>
+	</div>
 </body>
 </html>
