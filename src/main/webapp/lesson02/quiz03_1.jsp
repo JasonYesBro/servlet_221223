@@ -29,13 +29,15 @@
 		if(bmi <= 20) {
 			result =  "저체중";
 			
-		} else if (bmi >= 21 && bmi <= 25 ) {
+		// 굳이 조건에 bmi >= 21 && 를 포함시켜 동작할 필요가 없음
+		// 위 조건에서 해당되는 요청값은 빠져나갔으므로~~
+		} else if (bmi <= 25 ) {
 			result = "정상";
 			
-		} else if (bmi >= 26 && bmi <= 30) {
+		} else if (bmi <= 30) {
 			result = "과체중";
 			
-		} else if(bmi > 30) {
+		} else {
 			result = "비만";
 			
 		}
