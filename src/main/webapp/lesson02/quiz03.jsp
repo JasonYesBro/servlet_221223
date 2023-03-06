@@ -15,8 +15,8 @@
 		<h1 class="display-4">체격조건 입력</h1>
 		<form action="/lesson02/quiz03_1.jsp" method="get" class="mx-auto" >
 			<div class="form-inline d-flex justify-content-around">
-			  	<input type="text" class="form-control" placeholder="height" aria-label="height"> cm
-			  	<input type="text" class="form-control" placeholder="weight" aria-label="weight"> kg
+			  	<input type="text" class="form-control" placeholder="height" aria-label="height" name="height"> cm
+			  	<input type="text" class="form-control" placeholder="weight" aria-label="weight" name="weight"> kg
 				<button type="submit" class="btn btn-info">계산</button>
 		  	</div>
 		</form>
