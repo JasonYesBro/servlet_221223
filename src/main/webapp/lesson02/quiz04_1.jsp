@@ -13,26 +13,26 @@
 
 	<%
 		String operation = "";
-		long num1 = 0;
-		long num2 = 0;
-		String result = "";
+		int num1 = 0;
+		int num2 = 0;
+		double result = 0d;
 
-		num1 = Integer.parseInt(request.getParameter("num1"));
+		num1 = Integer.valueOf(request.getParameter("num1"));
 		operation = request.getParameter("operation");
-		num2 = Integer.parseInt(request.getParameter("num2"));
+		num2 = Integer.valueOf(request.getParameter("num2"));
 		
 		if( operation.equals("+") ) {
-			result = String.valueOf(num1 + num2);
+			result = num1 + num2;
 			
 		} else if(operation.equals("-")) {
-			result = String.valueOf(num1 - num2);
+			result = num1 - num2;
 			
 		} else if(operation.equals("*")) {
 			operation = "X";
-			result = String.valueOf(num1 * num2);
+			result = (int)num1 * num2;
 			
 		} else {
-			result = String.valueOf(num1 / (double)num2);
+			result = Math.round(num1 / (double)num2);
 			
 		}
 	%>
