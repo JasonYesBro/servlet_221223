@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container w-50" style="min-width: 1355px; min-height:105px !important;">
+<div class="container w-50" style="min-width: 1355px;">
 	<h1>사칙연산 계산기</h1>
 	<form action="/lesson02/quiz04_1.jsp" method="post">
 		<div class="form-inline">
