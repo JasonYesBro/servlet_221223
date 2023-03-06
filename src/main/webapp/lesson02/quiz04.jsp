@@ -16,10 +16,11 @@
 		<div class="form-inline">
 			<input type="text" class="form-control mx-sm-3 mb-2" name="num1" />
 			<select class="custom-select mx-sm-3 mb-2" name="operation" aria-label=".form-select-lg example">
+			  	<%--value속성을 지정하게 되면 value속성이 태그안의 값보다 우선시 된다. --%>
 			  	<option selected value="+">+</option>
 			  	<option value="-">-</option>
 			  	<option value="*">*</option>
-			  	<option value="/">/</option>
+			  	<option value="÷">÷</option>
 			</select>
 			<input type="text" class="form-control mx-sm-3 mb-2" name="num2" />
 			<button type="submit" class="btn btn-info mx-sm-3 mb-2">계산하기</button>
