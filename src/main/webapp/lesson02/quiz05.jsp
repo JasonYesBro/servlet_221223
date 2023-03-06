@@ -10,8 +10,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="container mx-auto m-5">
 	<form action="/lesson02/quiz05_1.jsp" method="post">
-		<input type="text" name="num" class="">
+	<div class="d-flex align-items-end">
+		<input type="text" name="num" class=""><span class="ml-1">cm</span>
+	</div>
 		<br>
 		<div class="form-check form-check-inline">
 			<label class="form-check-label" for="inlineCheckbox1">인치</label>
@@ -31,5 +34,7 @@
 		</div>
 		<button type="submit" class="btn btn-info mx-sm-3 mb-2">변환하기</button>
 	</form>
+</div>
+	
 </body>
 </html>
