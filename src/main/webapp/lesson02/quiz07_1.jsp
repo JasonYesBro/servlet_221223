@@ -33,20 +33,6 @@
     list.add(map);
     
 	String search = request.getParameter("search");
-	String result = null;
-	
-	for ( int i = 0; i < list.size(); i++ ) {
-		if(list.get(i).get("menu").equals(search)) {
-			if((int)list.get(i).get("point") >= 4) {
-				
-				result += "<tr><td> " + i + "</td><td>" + list.get(i).get("name") + "</td><td>" + list.get(i).get("point") + "</td></tr>";
-				
-			}
-		}
-		
-	}
-	
-
     
 	%>
 </body>
@@ -56,6 +42,19 @@
 			<th>번호</th>
 			<th>상호</th>
 			<th>별점</th>
+			<%
+				String result = "";
+				
+				for ( int i = 0; i < list.size(); i++ ) {
+					if(list.get(i).get("menu").equals(search)) {
+						if((double)list.get(i).get("point") >= 4.0) {
+							result += "<tr><td> " + i + "</td><td>" + list.get(i).get("name") + "</td><td>" + list.get(i).get("point") + "</td></tr>";
+							
+						}
+					}
+					
+				}
+			 %>
 			<%= result %>
 		</table>
 	</div>
