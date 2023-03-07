@@ -16,23 +16,34 @@
 	List<String> goodsList = Arrays.asList(new String[]{ 
 		    "저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
 		});
-	
-	public String showList(List<String> goodsLsit) {
+	%>
+	<%-- public String showList(List<String> goodsLsit) {
 		String result = "";
 		for ( int i = 0; i < goodsList.size(); i++ ) {
 			
 			result += "<tr><td> " + i + "</td><td>" + goodsList.get(i) + "</td></tr>";
 		}
 		return result;
-	}
+	} --%>
 	
-	%>
 	
-	<table>
+	<h1 class="text-center">장보기 목록</h1>
+	<table class="table text-center mx-auto w-75">
 		<th>번호</th>
 		<th>품목</th>
-			<%= showList(goodsList) %>
+		<%
+			String result = "";
+			for ( int i = 0; i < goodsList.size(); i++ ) {
+				
+		%>
+		<tr>
+			<td><%= i %></td>
+			<td><%= goodsList.get(i) %></td>
+		</tr>
+		<%
+			}
 		
+		%>
 	</table>
 </body>
 </html>
