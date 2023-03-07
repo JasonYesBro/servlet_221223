@@ -1,8 +1,5 @@
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,7 +36,7 @@
 </body>
 	<div class="container mx-auto text-center">
 		<h1>검색 결과</h1>
-		<table class="table">
+		<table class="table text-center">
 			<th>번호</th>
 			<th>상호</th>
 			<th>별점</th>
@@ -58,8 +55,6 @@
 				
 				// 태그 안에 반복문을 활용 코드로 수정
 				
-				Map<String,Object> goods = list.iterator().next();
-				Iterator<String> iter = goods.keySet().iterator();
 				
 				String search = request.getParameter("search");
 				String except = request.getParameter("except");
