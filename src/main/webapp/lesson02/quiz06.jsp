@@ -34,10 +34,10 @@
 		<%
 			String result = "";
 			for ( int i = 0; i < goodsList.size(); i++ ) {
-				
+			
 		%>
 		<tr>
-			<td><%= i %></td>
+			<td><%= i+1 %></td>
 			<td><%= goodsList.get(i) %></td>
 		</tr>
 		<%
