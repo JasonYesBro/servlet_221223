@@ -20,7 +20,7 @@
 		public String transferUnit(String unit, int num) {
 			double result = 0d;
 			if (unit.equals("inch")) {
-				result = num * 0.39;
+				result = num * 0.393701;
 			} else if (unit.equals("yard")) {
 				result = num * 0.0109361;
 			} else if (unit.equals("feet")) {
