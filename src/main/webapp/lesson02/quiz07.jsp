@@ -15,7 +15,7 @@
 		<h1>메뉴 검색</h1>
 		<div class="form-inline">
 			<input name="search" class="form-control mr-2">
-			<input class="form-check-input" type="checkbox" id="flexCheckChecked" checked>
+			<input name="except" class="form-check-input" type="checkbox" id="flexCheckChecked" checked>
 			<label class="form-check-label" for="flexCheckChecked">
 			  4점 이하 제외
 			</label>	
