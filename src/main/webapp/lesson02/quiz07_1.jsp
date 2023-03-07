@@ -59,20 +59,11 @@
 				int i = 0;
 				for(Map<String, Object> item : list){
 					if(item.get("menu").equals(search)) {	
-						if(except != null) {
-							if((double)item.get("point") >= 4.0) {
-								i++;
-			 %>
-			 <tr>
-				 <td><%= i %></td>
-				 <td><%= item.get("name") %></td>
-				 <td><%= item.get("point") %></td>
-			 </tr>
-			 <%
-			 				}
+						//4점이하일 때 skip => 체크가 되어 있을때
+						if(except != null && (double)item.get("point") <= 4.0) {
+							continue;	
 						} else {
-							i++;
-							
+							i++;	
 			 %>
 			 <tr>
 				 <td><%= i %></td>
