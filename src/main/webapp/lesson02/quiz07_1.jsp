@@ -1,3 +1,4 @@
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
@@ -32,7 +33,7 @@
     map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
     list.add(map);
     
-	String search = request.getParameter("search");
+
     
 	%>
 </body>
@@ -45,7 +46,7 @@
 			<%
 				String result = "";
 				
-				for ( int i = 0; i < list.size(); i++ ) {
+				/* for ( int i = 0; i < list.size(); i++ ) {
 					if(list.get(i).get("menu").equals(search)) {
 						if((double)list.get(i).get("point") >= 4.0) {
 							result += "<tr><td> " + i + "</td><td>" + list.get(i).get("name") + "</td><td>" + list.get(i).get("point") + "</td></tr>";
@@ -53,9 +54,47 @@
 						}
 					}
 					
+				} */
+				
+				// 태그 안에 반복문을 활용 코드로 수정
+				
+				Map<String,Object> goods = list.iterator().next();
+				Iterator<String> iter = goods.keySet().iterator();
+				
+				String search = request.getParameter("search");
+				String except = request.getParameter("except");
+				
+				int i = 0;
+				for(Map<String, Object> maps : list){
+					if(maps.get("menu").equals(search)) {	
+						if(except != null) {
+							if((double)maps.get("point") >= 4.0) {
+								i++;
+			 %>
+			 <tr>
+				 <td><%= i %></td>
+				 <td><%= maps.get("name") %></td>
+				 <td><%= maps.get("point") %></td>
+			 </tr>
+			 <%
+			 				}
+						} else {
+							i++;
+							
+			 %>
+			 <tr>
+				 <td><%= i %></td>
+				 <td><%= maps.get("name") %></td>
+				 <td><%= maps.get("point") %></td>
+			 </tr>
+			 <%
+						}
+					}
 				}
 			 %>
-			<%= result %>
+			 
+			 
+			<%-- <%= result %> --%>
 		</table>
 	</div>
 </html>
