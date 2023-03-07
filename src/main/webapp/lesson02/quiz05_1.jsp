@@ -42,16 +42,21 @@
 		checkUnits = request.getParameterValues("check");
 		
 		/* List<String> strList = new ArrayList<>(Arrays.asList(units)); */
-		List<String> strList1 = new ArrayList<>(Arrays.asList(checkUnits));
 		
-		out.print("<h3>" + num + "cm </h3><hr>");
-		
-		for (String a : strList) {
-			for (String b : strList1) {
-				if(a.equals(b)) {
-					out.print("<h3>" + transferUnit(b, num) + "</h3>");
+		if (checkUnits != null) {
+			List<String> strList1 = new ArrayList<>(Arrays.asList(checkUnits));
+			
+			out.print("<h3>" + num + "cm </h3><hr>");
+			for (String a : strList) {
+				for (String b : strList1) {
+					if(a.equals(b)) {
+						out.print("<h3>" + transferUnit(b, num) + "</h3>");
+					}
 				}
 			}
+		} else {
+			
+			out.print("아무것도 입력 안했습니다.");
 		}
 			
 	%>
