@@ -25,7 +25,7 @@
 				result = num * 0.0109361;
 			} else if (unit.equals("feet")) {
 				result = num * 0.0328084;
-			} else {
+			} else if (unit.equals("meter")) {
 				result = num * 0.01;
 			}
 			return (result + " " + unit);
