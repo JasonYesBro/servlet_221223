@@ -50,25 +50,23 @@
 						}
 					}
 					
-				} */
+				}  */
 				
 				// 태그 안에 반복문을 활용 코드로 수정
-				
-				
 				String search = request.getParameter("search");
 				String except = request.getParameter("except");
 				
 				int i = 0;
-				for(Map<String, Object> maps : list){
-					if(maps.get("menu").equals(search)) {	
+				for(Map<String, Object> item : list){
+					if(item.get("menu").equals(search)) {	
 						if(except != null) {
-							if((double)maps.get("point") >= 4.0) {
+							if((double)item.get("point") >= 4.0) {
 								i++;
 			 %>
 			 <tr>
 				 <td><%= i %></td>
-				 <td><%= maps.get("name") %></td>
-				 <td><%= maps.get("point") %></td>
+				 <td><%= item.get("name") %></td>
+				 <td><%= item.get("point") %></td>
 			 </tr>
 			 <%
 			 				}
@@ -78,8 +76,8 @@
 			 %>
 			 <tr>
 				 <td><%= i %></td>
-				 <td><%= maps.get("name") %></td>
-				 <td><%= maps.get("point") %></td>
+				 <td><%= item.get("name") %></td>
+				 <td><%= item.get("point") %></td>
 			 </tr>
 			 <%
 						}
