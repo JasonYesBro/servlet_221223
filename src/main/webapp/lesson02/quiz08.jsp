@@ -75,6 +75,16 @@
 						
 						Map<String, Object> obj = list.get(i);
 						
+				%>
+				
+				<tr>
+				<td><%= list.get(i).get("id") %></td>
+				<td><img src="<%= obj.get("image") %>" style="width: 70px; height: auto;"></td>
+				<td><a href="/lesson02/quiz08_1.jsp?id=<%= obj.get("id") %>"><%=obj.get("title") %></td>
+				</tr>
+				<%-- 수정 전 코드 --%> 
+				
+				<%-- <%						
 						result += "<tr><td>" + list.get(i).get("id") 
 								+ "</td><td><img src=\""
 								+ obj.get("image")  
@@ -86,9 +96,11 @@
 								+ "</tr></td>";
 						
 					}
-				 %>
+				 %> --%>
 				 
-				<%= result %>
+				<%
+				 	}
+				 %>
 			</table>
 		</div>
 </div>
