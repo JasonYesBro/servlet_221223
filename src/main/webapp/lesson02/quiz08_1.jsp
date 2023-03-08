@@ -60,15 +60,15 @@
 	};
 	list.add(map);
 
+	// get방식 쿼리파라미터로 넘어온 id값을 String 변수에 할당함
 	String id = request.getParameter("id");
 	
+	// 화면에 응답할 변수들 초기화
 	String title = "";
 	String author = "";
 	String publisher = "";
 	String image = "";
 	
-	
-		
 		for(Map<String, Object> obj : list) {
 
 			if(obj.get("id").toString().equals(id)) {
@@ -78,17 +78,39 @@
 				image = obj.get("image").toString();
 			}
 		}
+		
+		// 다른 방법
+		/* int id1 = Integer.valueOf(request.getParameter("id"));
+		Map<String, Object> target = new HashMap<>();
+		
+		for(Map<String, Object> item : list) {
+			if ((Integer)item.get("id") == id1) {
+				// 주소를 복사해서 저장해둔다. 후에 html에 뿌려줄때 사용함.
+				target = item;
+				// 더 반복문이 돌지 않도록 break
+				break;
+			}
+		} */
 	
 	%>
 	
-	<div class="container w-50 h-50 d-flex justify-content-around">
-		<img alt="" src="<%= image %>" class="img-thumbnail w-50 h-50">
+	<div class="container w-75 h-50 d-flex justify-content-around">
+		<img alt="표지" src="<%= image %>" class="img-thumbnail" width="200">
 		<div class="container d-flex flex-column justify-content-start">		
 			<p class="h1"><strong><%= title %></strong></p>
 			<p class="h2 text-info"><%= author %></p>
 			<p class="h3 text-secondary"><%= publisher %></p>		
 		</div>
 	</div>
+	
+<%-- 	<div class="container w-50 h-50 d-flex justify-content-around">
+		<img alt="표지" src="<%= target.get("image") %>" class="img-thumbnail w-50 h-50">
+		<div class="container d-flex flex-column justify-content-start">		
+			<p class="h1"><strong><%= target.get("title") %></strong></p>
+			<p class="h2 text-info"><%= target.get("author") %></p>
+			<p class="h3 text-secondary"><%= target.get("publisher") %></p>		
+		</div>
+	</div> --%>
 	
 </body>
 </html>
