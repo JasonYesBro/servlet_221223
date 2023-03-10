@@ -83,16 +83,19 @@ musicInfo.put("lyricist", "아이유");
 musicList.add(musicInfo);
 %>
 <%
+	// 쿼리파라미터 값으로 넘어온 값을 받아온다.
 	String title = request.getParameter("title");
 	
+	// 강화된 반복문을 사용
 	for( Map<String, Object> item: musicList) {
 		
+		// 조건 : 쿼리스트링으로 넘겨온 파라미터값과 데이터의 title값과 일치하는 경우 
 		if (title.equals(item.get("title"))) {
+			
 			// thumnail, title, singer, album, time, composer, lyricist
 			int timeMin = (int)item.get("time") / 60;
 			int timeSec = (int)item.get("time") % 60;
-			
-			
+	
 %>
 
 <%-- 곡 정보 영역 --%>
@@ -106,15 +109,25 @@ musicList.add(musicInfo);
 	<div class="d-flex flex-column">
 		<h3 class="display-4 font-weight-light"><%= item.get("title") %></h3>
 		<h5 class="display-5 text-success font-weight-bold"><%= item.get("singer") %></h5>
-		<div class="d-flex flex-column font-weight-light">
-			<span>앨범명 <%= item.get("album") %></span>
-			<span>재생시간 <%= timeMin %> : <%= timeSec %></span>
-			<span>작곡가 <%= item.get("composer") %></span>
-			<span>작사가 <%= item.get("lyricist") %></span>
+		<div class="d-flex font-weight-light">
+			<div class="d-flex flex-column mr-3">
+				<span>앨범명</span>
+				<span>재생시간</span>
+				<span>작곡가</span>
+				<span>작사가</span>
+			</div>
+			<div class="d-flex flex-column">
+			
+				<%-- 곡제목과 일치하는 해당 item의  --%>
+				<span><%= item.get("album") %></span>
+				<span><%= timeMin %> : <%= timeSec %></span>
+				<span><%= item.get("composer") %></span>
+				<span><%= item.get("lyricist") %></span>
+			</div>
 		</div>
 	</div>
 <%
-	return;
+			break;
 		}
 	}
 %>

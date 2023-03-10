@@ -82,26 +82,23 @@ musicInfo.put("composer", "아이유,이종훈,이채규");
 musicInfo.put("lyricist", "아이유");
 musicList.add(musicInfo);
 %>
-<%
-	request.getParameter("검색어");
 
-%>
 <%-- 아티스트 정보 영역 --%>
 <div class="info border border-success mt-3 p-3 d-flex flex-row">
-	<div class="">
-		<img src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/111/535/81111535_1539157728291_1_600x600.JPG"  width=150px; alt="가수이미지" />
+	<div class="mr-3">
+		<img src="<%= artistInfo.get("photo") %>"  width=150px; alt="가수이미지" />
 	</div>
-	<div class="container">
-		<h3 class="display-5">아이유</h3>
-		<p>EDAM 엔터테인먼트</p>
-		<p>2008 데뷔</p>
+	<div class="">
+		<h3 class="display-5"><%= artistInfo.get("name") %></h3>
+		<p class="my-auto"><%= artistInfo.get("agency") %></p>
+		<p class="my-auto"><%= artistInfo.get("debute") %></p>
 	</div>
 </div>
 
 <%-- 곡목록 --%>
 <div class="content mt-3">
 	<div>
-		<h2>곡 목록</h2>
+		<h4 class="display-5">곡 목록</h4>
 	</div>
 	<div>
 		<table class="table text-center">
@@ -120,7 +117,7 @@ musicList.add(musicInfo);
 				%>
 				<tr>
 					<td><%= item.get("id") %></td>
-					<td><a href="/lesson03/quiz02/info_layout.jsp?title=<%= item.get("title")%>"><%= item.get("title") %></a></td>
+					<td><a href="/lesson03/quiz02/info_layout.jsp?title=<%= item.get("title")%>" class="text-primary"><%= item.get("title") %></a></td>
 					<td><%= item.get("album") %></td>
 				</tr>
 				<%
