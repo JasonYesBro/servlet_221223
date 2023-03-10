@@ -1,6 +1,7 @@
 <%@ page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
 List<Map<String, String>> list = new ArrayList<>();
 Map<String, String> map = new HashMap<String, String>() {
@@ -136,13 +137,13 @@ map = new HashMap<String, String>() {
 };
 list.add(map);
 %>
-<!-- <table class="table">
-	<thead>
-		<th class="col-4">채널</th>
-		<th class="col-4">채널명</th>
-		<th class="col-4">카테고리</th>
-	</thead>
- -->
+ 	<table class="table text-center">
+		<thead>
+			<th class="col-4">채널</th>
+			<th class="col-4">채널명</th>
+			<th class="col-4">카테고리</th>
+		</thead>
+
 	<tbody>
 		<%
 		List<Map<String, String>> itemList = new ArrayList<>();
@@ -153,8 +154,6 @@ list.add(map);
 		for (Map<String, String> item : itemList) {
 
 			// 만약 쿼리 파라미터값으로 지상파 값이 넘어오게 된다면 해당 카테고리 값들을 보여줘야 함
-			// 어떻게 보여줘야 할까
-			// 해당 값들을 다시 담는법 그리고 난 후 보여주는 법
 
 			String ch = "";
 			String name = "";
@@ -164,7 +163,6 @@ list.add(map);
 				ch = item.get("ch");
 				name = item.get("name");
 				category = item.get("category");
-			}
 			
 		%>
 		<tr>
@@ -173,7 +171,8 @@ list.add(map);
 			<td><%=category%></td>
 		</tr>
 		<%
+			}
 		}
 		%>
 	</tbody>
-<!-- </table> -->
+	</table>

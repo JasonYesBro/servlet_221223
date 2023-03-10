@@ -64,7 +64,7 @@ table {
 				<jsp:include page="menu.jsp" />
 			</nav>
 			<section class="contents">
-				<jsp:include page="contents.jsp" />
+				<jsp:include page="template.jsp" />
 			</section>
 			<footer class="bg-danger mt-3">
 				<jsp:include page="footer.jsp" />
