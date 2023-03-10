@@ -27,9 +27,24 @@ a {
 #wrap {
 	width: 1200px;
 }
+
 header {
 	width: 700px;
 	height: 80px;
+}
+
+.search {
+	margin-right: 3px;
+}
+
+.btn {
+	background-color:#ffffff;
+	font-weight:bold;
+}
+
+.btn:hover {
+	background-color:#04cd3b;
+	color:white;
 }
 
 nav {
@@ -46,21 +61,13 @@ section {
 	height: 900px;
 }
 
-/* .content {
-	height:400px;
-}
-
-.info {
-	height: 400px;
-}
- */
 footer {
 	height: 100px;
 }
 
 </style>
 <body>
-	<div id="wrap" class="mx-auto">
+	<div id="wrap" class="mx-auto" width="1200px">
 		<div id="container">
 			<header class="d-flex justify-content-start align-items-center">
 				<jsp:include page="header.jsp"></jsp:include>
@@ -69,9 +76,9 @@ footer {
 				<jsp:include page="menu.jsp"></jsp:include>
 			</nav>
 			<section class="d-flex flex-column">
-				<jsp:include page="contents.jsp"></jsp:include>
+				<jsp:include page="list_contents.jsp"></jsp:include>
 			</section>
-			<footer class="bg-secondary">
+			<footer class="">
 				<jsp:include page="footer.jsp"></jsp:include>
 			</footer>
 		</div>
