@@ -84,31 +84,60 @@ musicList.add(musicInfo);
 %>
 <%
 	// 쿼리파라미터 값으로 넘어온 값을 받아온다.
-	String title = request.getParameter("title");
+	/* String strid = "";
+	String title ="";
+	strid = request.getParameter("id");
+	title = request.getParameter("title"); */
+	/* if (strid==null){
+		strid="0";
+	} else if (title==null) {
+		title="";
+	} */
 	
-	// 강화된 반복문을 사용
-	for( Map<String, Object> item: musicList) {
-		
-		// 조건 : 쿼리스트링으로 넘겨온 파라미터값과 데이터의 title값과 일치하는 경우 
-		if (title.equals(item.get("title"))) {
-			
-			// thumnail, title, singer, album, time, composer, lyricist
-			int timeMin = (int)item.get("time") / 60;
-			int timeSec = (int)item.get("time") % 60;
-	
-%>
 
+	
+	Map<String, Object> target = null;
+
+	// 강화된 반복문을 사용
+	if(request.getParameter("id") != null) {
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		for( Map<String, Object> item: musicList) {
+			// 조건 : 쿼리스트링으로 넘겨온 id값과 데이터의 id값과 일치하는 경우 
+			if (id == (int)item.get("id")) {
+
+				target = item;
+				break;
+			}
+		}
+	}
+	
+	if(request.getParameter("title") != null) {
+		String title = request.getParameter("title");
+		
+		for( Map<String, Object> item: musicList) {
+			// 조건 : 쿼리스트링으로 넘겨온 파라미터값과 데이터의 title값과 일치하는 경우 
+			if (title.equals(item.get("title"))) {
+				target = item;
+			}
+		}
+	}
+%>
+<%
+	if(target != null) {
+		
+%>
 <%-- 곡 정보 영역 --%>
 <h4 class="display-5 mt-3">곡 정보</h4>
 <div class="info border border-success mt-3 p-3 d-flex flex-row">
 	<div class="mr-3">
 		<img
-			src="<%= item.get("thumbnail") %>"
+			src="<%= target.get("thumbnail") %>"
 			width=200px; alt="앨범이미지" />
 	</div>
 	<div class="d-flex flex-column">
-		<h3 class="display-4 font-weight-light"><%= item.get("title") %></h3>
-		<h5 class="display-5 text-success font-weight-bold"><%= item.get("singer") %></h5>
+		<h3 class="display-4 font-weight-light"><%= target.get("title") %></h3>
+		<h5 class="display-5 text-success font-weight-bold"><%= target.get("singer") %></h5>
 		<div class="d-flex font-weight-light">
 			<div class="d-flex flex-column mr-3">
 				<span>앨범명</span>
@@ -119,19 +148,16 @@ musicList.add(musicInfo);
 			<div class="d-flex flex-column">
 			
 				<%-- 곡제목과 일치하는 해당 item의  --%>
-				<span><%= item.get("album") %></span>
-				<span><%= timeMin %> : <%= timeSec %></span>
-				<span><%= item.get("composer") %></span>
-				<span><%= item.get("lyricist") %></span>
+				<span><%= target.get("album") %></span>
+				<span><%= (int)target.get("time") / 60 %> : <%= (int)target.get("time") % 60 %></span>
+				<span><%= target.get("composer") %></span>
+				<span><%= target.get("lyricist") %></span>
 			</div>
 		</div>
 	</div>
-<%
-			break;
-		}
-	}
-%>
+
 </div>
+
 
 <%-- 곡목록 --%>
 <h4 class="display-5 mt-3">가사</h4>
@@ -140,3 +166,10 @@ musicList.add(musicInfo);
 가사 정보 없음
 </div>
 <hr width=100%;>
+<%
+	} else {
+%>
+<div><h3 class="display-4">검색정보가 없습니다.</h3></div>
+<%
+	}
+%>

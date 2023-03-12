@@ -91,7 +91,7 @@ musicList.add(musicInfo);
 	<div class="">
 		<h3 class="display-5"><%= artistInfo.get("name") %></h3>
 		<p class="my-auto"><%= artistInfo.get("agency") %></p>
-		<p class="my-auto"><%= artistInfo.get("debute") %></p>
+		<p class="my-auto"><%= artistInfo.get("debute") %> 데뷔</p>
 	</div>
 </div>
 
@@ -117,7 +117,7 @@ musicList.add(musicInfo);
 				%>
 				<tr>
 					<td><%= item.get("id") %></td>
-					<td><a href="/lesson03/quiz02/info_layout.jsp?title=<%= item.get("title")%>" class="text-primary"><%= item.get("title") %></a></td>
+					<td><a href="/lesson03/quiz02/info_layout.jsp?id=<%= item.get("id")%>" class="text-primary"><%= item.get("title") %></a></td>
 					<td><%= item.get("album") %></td>
 				</tr>
 				<%

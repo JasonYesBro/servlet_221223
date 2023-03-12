@@ -67,7 +67,7 @@ footer {
 
 </style>
 <body>
-	<div id="wrap" class="mx-auto" width="1200px">
+	<div id="wrap" class="mx-auto" width="1200px;">
 		<div id="container">
 			<header class="d-flex justify-content-start align-items-center">
 				<jsp:include page="header.jsp"></jsp:include>
