@@ -28,6 +28,7 @@ public class MysqlService {
 	private MysqlService() {
 		
 	}
+	
 	// 싱글톤의 특징
 	public static MysqlService getInstance() {
 		if(mysqlService == null) {
@@ -73,17 +74,9 @@ public class MysqlService {
 		return rs;
 	}
 	
-	// CUD = insert, update, delete
+	// CUD = insert, update, delete , return nothing
 	public void update(String query) throws SQLException {
 		stmt.executeUpdate(query);
 	}
-	
-//	public void delete(String query) throws SQLException {
-//		
-//	}
-//	
-//	public void insert(String query) throws SQLException {
-//		
-//	}
 	
 }
