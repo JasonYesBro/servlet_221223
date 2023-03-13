@@ -29,9 +29,9 @@ public class quiz01 extends HttpServlet {
 		
 		// insert쿼리(update) select 쿼리
 		PrintWriter out = response.getWriter();
-		String insertQuery = "insert into `real_estate` (`realtorId`, `address`, `area`, `type`, `price`, `rentPrice`)\n"
+		String insertQuery = "insert into `real_estate` (`realtorId`, `address`, `area`, `type`, `price`, `rentPrice`)"
 							+ " values(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, NULL)";
-		String selectQuery = " select `id`, `address`, `area`, `type`  from real_estate"
+		String selectQuery = " select `id`, `address`, `area`, `type` from real_estate"
 				+ " order by `id` desc limit 10;";
 		
 		try {
