@@ -45,7 +45,7 @@ public class InsertUrl extends HttpServlet {
 		// DB 해제
 		ms.disconnect();
 		
-		// redirect 리다이렉트해줌
+		// 즐겨찾기 목록으로 redirect 리다이렉트해줌
 		response.sendRedirect("/lesson04/quiz01/quiz01.jsp");
 		
 	}

@@ -29,7 +29,7 @@
 			</div>
 			<div>
 				<label for="siteAddr">사이트 주소 : </label>
-				<input type="text" name="siteAddr" id="siteAddr" class="form-control col-4"/>
+				<input type="text" name="siteAddr" id="siteAddr" class="form-control col-6"/>
 			</div>
 			<div class="mt-3">
 				<input type="submit" class="btn btn-info" value="추가" />
