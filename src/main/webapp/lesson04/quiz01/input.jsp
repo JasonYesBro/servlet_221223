@@ -21,7 +21,7 @@
 <body>
 <!-- 새로운 jsp에서 input 태그로 데이터를 입력 받고, form 태그와 servlet을 이용해서 insert 하세요. insert 후 위에서 만든 목록 출력 페이지로 리다이렉트 하세요. -->
 	<h1>즐겨찾기 추가</h1>
-	<form action="/lesson04/quiz01/quiz01.jsp" method="get">
+	<form action="/lesson04/inserturl" method="get">
 	<div class="d-flex flex-column">
 		<div>
 			<label for="siteName">사이트명 : </label>
