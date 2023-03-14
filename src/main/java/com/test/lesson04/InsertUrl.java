@@ -15,9 +15,10 @@ import com.test.common.MysqlService;
 public class InsertUrl extends HttpServlet {
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 파라미터 값 받기
+		// 한번 확인하기
 		String siteName = request.getParameter("siteName");
 		String siteAddr = request.getParameter("siteAddr");
 		
@@ -30,8 +31,9 @@ public class InsertUrl extends HttpServlet {
 		String insertQuery = "insert into `favorites` (`name`, `url`) values ('"+ siteName + "' , '" + siteAddr + "')";
 		
 		try {
-			// 사이트명과 주소가 널이 아닐시에만 insert
-			if(siteName != null && siteAddr != null) {
+			// 사이트명과 주소가 널이 아닐시에만 insert 
+			// 널이 아닌 빈""값이 넘어오기 때문에 equals메서드로 비교하여 처리함
+			if(!siteName.equals("") && !siteAddr.equals("")) {
 				ms.update(insertQuery);
 			}
 			
