@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.test.common.MysqlService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +22,8 @@
 </head>
 <style>
 .container {
-	 height:1100px;
+	 height:900px;
+	 min-width : 750px;
 }
 
 header {
@@ -39,49 +42,82 @@ header {
 a {
 	color: white;
 }
-section {
-	 height: 85%;
+
+p {
+	margin: 0 0;
 }
 
 .item-container {
+	width: 100%;
 	height: 35%;
 }
 
 .item {
 	width: 33%;
-	height: 100%;
+	height: 300px;
 	border: 2px solid #ff7f4f;
-	margin-right:5px;
+	margin-bottom: 10px;
+	padding: 7px;
 }
 
-.item:last-child {
-	margin-right:-5px;
+.img-container {
+	height: 75%;
 }
+
+.info-container {
+	height: 25%;
+	
+}
+
+.goods_img {
+	width: 100%;
+	object-fit: cover;
+	height: 85%;
+	
+}
+
+.nickname {
+	color: #ff7f4f;
+}
+
+
 </style>
 <body>
-	<div class="container text-center d-flex flex-column" width="1200px">
-		<header class="mt-3">
-			<div class="title d-flex justify-content-center align-items-center"><h2 class="display-5 text-white">Hong당무 마켓</h2></div>
-			<nav class="nav-bar">
-				<ul class="nav justify-content-center">
-					<li class="nav-item col-4"><a class="nav-link active" href="#">리스트</a></li>
-					<li class="nav-item col-4"><a class="nav-link active" href="#">물건 올리기</a></li>
-					<li class="nav-item col-4"><a class="nav-link active" href="#">마이 페이지</a></li>
-				</ul>
-			</nav>
-		</header>
-		<section class="mt-3 d-flex flex-column">
-			<div class="item-container d-flex mb-2">
-				<div class="item bg-warning"></div>
-				<div class="item bg-warning"></div>
-				<div class="item bg-warning"></div>
-			</div>
-			<div class="item-container d-flex">
-				<div class="item bg-warning"></div>
-				<div class="item bg-warning"></div>
-				<div class="item bg-warning"></div>
+	<div class="container" width="1200px">
+		<jsp:include page="header.jsp"></jsp:include>
+		<section class="mt-3">
+			<div class="item-container d-flex flex-row flex-wrap justify-content-between mb-2">
+			<%
+				request.getParameter("");
+			
+				MysqlService ms = MysqlService.getInstance();
+				ms.connect();
+				
+				String selectQuery = "select A.*, B.* from used_goods AS A left join seller AS B on A.id = B.id order by A.id desc;";
+				
+				ResultSet rs = ms.select(selectQuery);
+				
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					// 페이지에 응답해주어야할 데이터의 값이 만약 null 이라면? 처리--
+							
+			%>
+				<div class="item d-flex flex-column rounded">
+					<div class="img-container">
+						<img src="<%= rs.getString("profileImageUrl") %>" alt="판매물품이미지" width="300px" class="rounded goods_img"/>
+					</div>
+					<div class="info-container">
+						<p class="font-weight-bold"><%= rs.getString("title") %></p>
+						<p class="font-weight-lighter"><%= rs.getInt("price") %>원</p>
+						<p class="nickname font-weight-bold"><%= rs.getString("nickname") %></p>
+					</div>
+				</div>
+			<%
+				}
+			%>
 			</div>
 		</section>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>
