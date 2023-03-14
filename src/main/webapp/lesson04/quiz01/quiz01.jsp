@@ -25,20 +25,13 @@
 <body>
 	<%
 	response.setContentType("text/html");
-	
-	String siteName = request.getParameter("siteName");
-	String siteAddr = request.getParameter("siteAddr");
-	
+
 	MysqlService ms = MysqlService.getInstance();
 	ms.connect();
 	
-	String insertQuery = "insert into `favorites` (`name`, `url`) values ('"+ siteName + "' , '" + siteAddr + "')";
 	String selectQuery = "select `id`, `name`, `url` from `favorites` order by id desc";
 	
 	try {
-		if(siteName != null && siteAddr != null) {
-			ms.update(insertQuery);
-		}
 		ResultSet rs = ms.select(selectQuery);
 	%>
 	<table class="table text-center">
@@ -61,18 +54,18 @@
 				<td><a href="/lesson04/delete_url?id=<%= rs.getInt("id") %>">삭제</a></td>
 			</tr>
 			
-			<%
+		<%
 			}
-			
-			} catch (SQLException e) {
+		
+		} catch (SQLException e) {
 			e.printStackTrace();
-			}
+		}
 
-			ms.disconnect();
-			%>
+		ms.disconnect();
+		%>
 			</tbody></table>
 			<div class="mx-auto">
-			<p width= "100px" class="btn btn-white border"><a href="/lesson04/quiz01/input.jsp">즐겨찾기 추가</a></p>
+				<p width= "100px" class="btn btn-white border"><a href="/lesson04/quiz01/input.jsp">즐겨찾기 추가</a></p>
 			</div>
 				
 </body>
