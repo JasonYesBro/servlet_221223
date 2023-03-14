@@ -22,6 +22,14 @@
 	integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
 	crossorigin="anonymous"></script>
 </head>
+<style>
+	tr {
+		height: 60px;
+	}
+	td {
+		line-height: 60px;
+	}
+</style>
 <body>
 	<%
 	response.setContentType("text/html");
@@ -51,10 +59,10 @@
 			while (rs.next()) {
 			%>
 
-				<tr>
+				<tr class="align-items-center">
 					<td><%= rs.getString("name") %></td>
 					<td><a href="<%=  rs.getString("url") %>" target="blank"><%=  rs.getString("url") %></a></td>
-					<td><a href="/lesson04/delete_url?id=<%= rs.getInt("id") %>">삭제</a></td>
+					<td><a href="/lesson04/delete_url?id=<%= rs.getInt("id") %>" class="btn btn-danger">삭제</a></td>
 				</tr>
 			
 		<%
